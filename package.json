@@ -1,0 +1,30 @@
+{
+  "name": "microverse-605-weather-app",
+  "version": "1.0.0",
+  "description": "A simple weather app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --watch --open",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uryelah/Microverse-605-weather-app.git"
+  },
+  "author": "uryelah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uryelah/Microverse-605-weather-app/issues"
+  },
+  "homepage": "https://github.com/uryelah/Microverse-605-weather-app#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
