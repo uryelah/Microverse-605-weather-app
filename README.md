@@ -74,13 +74,13 @@ This project was built using these technologies.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/uryelah/Microverse-603-restaurant-page.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/uryelah/Microverse-605-weather-app.svg?style=flat-square
 [contributors-url]: https://github.com/uryelah/Microverse-605-weather-app/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/uryelah/Microverse-603-restaurant-page.svg?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/uryelah/Microverse-605-weather-app.svg?style=flat-square
 [forks-url]: https://github.com/uryelah/Microverse-605-weather-app/network/members
-[stars-shield]: https://img.shields.io/github/stars/uryelah/Microverse-603-restaurant-page.svg?style=flat-square
+[stars-shield]: https://img.shields.io/github/stars/uryelah/Microverse-605-weather-app.svg?style=flat-square
 [stars-url]: https://github.com/uryelah/Microverse-605-weather-app/stargazers
-[issues-shield]: https://img.shields.io/github/issues/uryelah/Microverse-603-restaurant-page.svg?style=flat-square
+[issues-shield]: https://img.shields.io/github/issues/uryelah/Microverse-605-weather-app.svg?style=flat-square
 [issues-url]: https://github.com/uryelah/Microverse-605-weather-app
 [product-screenshot]: img/screenshot.PNG
 
