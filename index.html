@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Weatherloo</title>
+</head>
+<body>
+  <div class="app" id="app">
+  </div>
+  <section class="frame">
+  </section>
+  <main class="content">
+    <h1 class="title">Someone's weather</h1>
+    <form class="city-form" action="" method="post" name="form_citydetails" id="form_citydetails" enctype="multipart/form-data" onsubmit="return false;">
+      <!--<p class="prompt"><strong>Please enter</strong> your city here:</p>-->
+      <input class="city-input default ff_elem" type="text" name="ff_nm_from[]" value="" id="f_elem_city" placeholder="Panama city, PA"/>
+        <button id="metric" class="degres-btn" data-system="metric">°C</button>
+        <button id="imperial" class="degres-btn" data-system="imperial">°F</button>
+    </form>
+    <article id='weather' class="weather">
+      <div class="icon"><img id="icon" src="http://openweathermap.org/img/wn/10d@2x.png" alt="" srcset=""></div>
+      <p class="listed weather-main" id="weather-main">Clouds <span class="weather-description secondary">(A few clouds)</span></p>
+      <p class="listed temperature" id="temperature"><span id="temperature-main" class="temperature-main">26C</span> <span class="temperature-min-max secondary"><span class="default">range:</span> 21C - 29C</span></p>
+      <p class="listed location" id="location"><span id="city">Campinas</span> - <span id="country">Brazil</span></p>
+      <p class="atmospheric pressure num" id="pressure"><span class="listed default">Pressure</span><span><span class="dotted">1017hPa</span></span></p>
+      <p class="atmospheric humidity num" id="humidity"><span class="listed default">Humidity</span><span><span class="dotted">69%</span></span></p>
+      <p class="atmospheric wind num" id="wind"><span class="listed default">Wind</span><span id="wind-velocity"><span class="dotted">3.1m/s</span></span><span class="wind-direction" id="wind-direction">30deg</span></p>
+    </article>
+    <p id='data'>
+    </p>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/flick/jquery-ui.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="./main.js" type="text/javascript"></script>
+</body>
+</html>
