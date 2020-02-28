@@ -30,10 +30,10 @@ body {
 
 .app {
   height: 100%;
-  background-image: linear-gradient(to top, #ffffff22, #ffffff88), url('../img/Clear.png');
+  background-image: linear-gradient(to top, #ffffff11, #ffffff66), url('../img/Clear.png');
   background-size: cover;
   background-repeat: no-repeat;
-  filter: blur(4px);
+  filter: blur(5px);
   transition: 0.8s ease-in;
   position: absolute;
   left: -5px;
@@ -61,7 +61,7 @@ body {
   justify-content: center;
   text-align: center;
   border-bottom: 3px dashed var(--euclasia);
-
+  position: relative;
 }
 
 .city-input {
@@ -75,8 +75,22 @@ body {
   line-height: 0;
 }
 
+.info {
+  color: rgb(197, 85, 85);
+  position: absolute;
+  top: -25px;
+  left: 45px;
+  transition: 0.3s ease-in;
+  opacity: 0;
+}
+
 .city-input:focus {
   color: var(--betonite);
+}
+
+.city-input:focus ~ .info {
+  opacity: 1;
+  animation: showFade 10s infinite;
 }
 
 .degres-btn {
@@ -168,7 +182,15 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--dia);
+  background-image: radial-gradient(var(--dia) 20%, transparent 0), 
+  radial-gradient(var(--chinga) 20%, transparent 0);
+  background-size: 5px 5px;
+  background-position: 0 0, 2px 2px;
   box-shadow: inset 10px 10px 0 0 #fffffa, 10px 10px 0 -5px var(--euclasia);
+}
+
+#icon {
+  animation: plain 1.5s ease-out infinite;
 }
 
 .icon img {
@@ -227,7 +249,30 @@ body {
   text-align: center;
   font-size: 1.5rem;
   margin-top: 50px;
+  padding-left: 0;
   border-top: 3px double var(--chinga);
+  display: flex;
+  justify-content: space-evenly;
+  overflow-y: visible;
+}
+
+.city-main {
+  max-width: 40%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  height: max-content;
+}
+
+.country-main {
+  display: inline-block;
+  width: 30%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  height: max-content;
 }
 
 .atmospheric {
@@ -286,4 +331,53 @@ body {
   height: 80px;
   width: 80px;
   border-radius: 50%;
+}
+
+.loader{
+  position: absolute;
+  height: 150px;
+  width: 30%;
+  top: calc(50vh + 75px);
+  text-align: center;
+  z-index: 300;
+  transform: scale(2);
+  display: inline-block;
+}
+
+svg path,
+svg rect{
+  fill: var(--euclasia);
+}
+
+.toggle-view {
+  display: none;
+}
+
+.error-message {
+  grid-column: 1/-1;
+  grid-row: 1;
+}
+
+@keyframes plain {
+  25% {
+    transform: translateY(4px);
+  }
+  75% {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes showFade {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }

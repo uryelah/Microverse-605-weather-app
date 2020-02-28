@@ -1,78 +1,79 @@
 import countries from './countryDictionary';
-import weathers from './weatherConditions';
-// source: https://geobytes.com/free-ajax-cities-jsonp-api/
-jQuery(() => {
-  jQuery('#f_elem_city').autocomplete({
-    source(request, response) {
-      jQuery.getJSON(
-        `https://secure.geobytes.com/AutoCompleteCity?key=7c756203dbb38590a66e01a5a3e1ad96&callback=?&q=${request.term}`,
-        (data) => {
-          response(data);
-        },
-      );
-    },
-    minLength: 3,
-    select(event, ui) {
-      const selectedObj = ui.item;
-      jQuery('#f_elem_city').val(selectedObj.value);
-      //getcitydetails(selectedObj.value);
-      return false;
-    },
-    open() {
-      jQuery(this).removeClass('ui-corner-all').addClass('ui-corner-top');
-    },
-    close() {
-      jQuery(this).removeClass('ui-corner-top').addClass('ui-corner-all');
-    },
-  });
-  jQuery('#f_elem_city').autocomplete('option', 'delay', 100);
-});
+import geoCitiesHelper from './geoCitiesHelper';
+import changeUI from './changeUi';
 
-//61e5f1d9ba214a56aac3a34d089a26b5 key
+geoCitiesHelper();
+
+const load = () => {
+  const loader = document.getElementById('loader');
+  const content = document.getElementById('weather');
+
+  loader.classList.toggle('toggle-view');
+  content.classList.toggle('toggle-view');
+};
+
+const activateTempButton = () => {
+  const tempBtns = document.getElementsByClassName('degres-btn');
+  [...tempBtns].forEach((btn) => {
+    btn.addEventListener('click', () => {
+      [...tempBtns].forEach((b) => {
+        if (b === btn) {
+          b.classList.add('pressed-btn');
+        } else {
+          b.classList.remove('pressed-btn');
+        }
+      });
+    });
+  });
+};
+
+const loadError = () => {
+  const content = document.getElementById('weather');
+  content.innerHTML = '<div style="width:100%;height:0;padding-bottom:62%;position:relative;grid-row: 3; grid-column:1/-1"><iframe src="https://giphy.com/embed/96ayqIqaTqQlW" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><h2 class="error-message">Error, try again later...</h2>';
+  load();
+};
 
 const getByCity = async (city, options) => {
   try {
-    let units = 'imperial';
-    if (options.celsius) {
-      units = 'metric';
-    }
-    const fe = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=<APIKEY>`, { mode: 'cors' });
+    const { system } = options;
+    const fe = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${system}&appid=d7becff7bc9a42f1a70e87fe334f70f5`, { mode: 'cors' });
     const result = await fe.json();
     return result;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };
 
-const changeBg = (type) => {
-  const app = document.getElementById('app');
-  app.style.filter = 'blur(5px) brightness(1.3)';
-  setTimeout(() => {
-    app.style.backgroundImage = `url('${weathers[type]}')`;
-    app.style.filter = 'blur(5px) brightness(1)';
-  }, 1000)
-};
-
-//getByCity({celsius: true})
-
 window.onload = () => {
   const input = document.getElementById('f_elem_city');
+  activateTempButton();
 
-  input.addEventListener('keydown', async e => {
-    if (e.key === 'Enter') {
+  input.addEventListener('keydown', async (e) => {
+    if (e.key === 'Enter' && input.value !== '') {
       let inputVal = input.value.split(',');
-      inputVal = inputVal.map(inp => inp.trim())
+      const system = document.getElementsByClassName('pressed-btn')[0];
+      inputVal = inputVal.map((inp) => inp.trim());
 
-      let countrie = Object.keys(countries).find(key => {
-        if (countries[key] === inputVal[2]) {
+      const country = Object.keys(countries).find((key) => {
+        if ((inputVal.length === 3 && countries[key] === inputVal[2])
+          || (inputVal.length === 2 && countries[key] === inputVal[1])) {
           return key;
         }
+        return false;
       });
 
-      let val = `${inputVal[0]}${countrie ? ',' + countrie.toLowerCase() : ''}`;
-      const data = JSON.parse('{"coord":{"lon":-77.46,"lat":18.47},"weather":[{"id":801,"main":"Clouds","description":"few clouds","icon":"02d"}],"base":"stations","main":{"temp":28,"feels_like":30.41,"temp_min":28,"temp_max":28,"pressure":1017,"humidity":69},"visibility":10000,"wind":{"speed":3.1,"deg":30},"clouds":{"all":20},"dt":1582820774,"sys":{"type":1,"id":7107,"country":"JM","sunrise":1582803040,"sunset":1582845298},"timezone":-18000,"id":3488726,"name":"Rio Bueno","cod":200}')//await getByCity(val, {celsius: true});
-      document.getElementById('data').innerHTML = JSON.stringify(data);
-      changeBg(data.weather[0].main);
+      load();
+      const val = `${inputVal[0]}${country ? `,${country.toLowerCase()}` : ''}`;
+
+      try {
+        const data = await getByCity(val, { system: system.dataset.system });
+        changeUI(data, system.dataset.system);
+        setTimeout(() => {
+          load();
+        }, 600);
+      } catch (err) {
+        loadError();
+      }
     }
   });
 };
