@@ -52,7 +52,7 @@ window.onload = () => {
     if (e.key === 'Enter' && input.value !== '') {
       let inputVal = input.value.split(',');
       const system = document.getElementsByClassName('pressed-btn')[0];
-      inputVal = inputVal.map((inp) => inp.trim());
+      inputVal = inputVal.map(inp => inp.trim());
 
       const country = Object.keys(countries).find((key) => {
         if ((inputVal.length === 3 && countries[key] === inputVal[2])
