@@ -40,7 +40,7 @@ This project is a simple weather app that uses the fetch API, to get climate dat
 - Click the Celcius or Fahrenheit
 - Press Enter
 - Get the climate data from the open weather map API for the selected city
-- Background image chages to reflect climate
+- Background image changes to reflect climate
 
 <div align="center">
   <img src="public/img/scap-001.png" width="900">
