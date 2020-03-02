@@ -18,6 +18,17 @@ const loadError = () => {
   load();
 };
 
+const getByCity = async (city, options) => {
+  try {
+    const { system } = options;
+    const fe = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${system}&appid=d7becff7bc9a42f1a70e87fe334f70f5`, { mode: 'cors' });
+    const result = await fe.json();
+    return result;
+  } catch (err) {
+    return err;
+  }
+};
+
 const searchWeather = async () => {
   const input = document.getElementById('f_elem_city');
   let inputVal = input.value.split(',');
@@ -43,17 +54,6 @@ const searchWeather = async () => {
     }, 600);
   } catch (err) {
     loadError();
-  }
-};
-
-const getByCity = async (city, options) => {
-  try {
-    const { system } = options;
-    const fe = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${system}&appid=d7becff7bc9a42f1a70e87fe334f70f5`, { mode: 'cors' });
-    const result = await fe.json();
-    return result;
-  } catch (err) {
-    return err;
   }
 };
 
