@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href=" http://openweathermap.org/img/wn/02d@2x.png">
+  <title>Somewhere's weather</title>
+</head>
+
+<body>
+  <div class="app" id="app">
+  </div>
+  <section class="frame">
+  </section>
+  <main class="content">
+    <h1 class="title">Somewhere's weather</h1>
+    <form class="city-form" action="" method="post" name="form_citydetails" id="form_citydetails"
+      enctype="multipart/form-data" onsubmit="return false;">
+      <input class="city-input default ff_elem" type="text" name="ff_nm_from[]" value="" id="f_elem_city"
+        placeholder="Panama city, PA" />
+        <span class="info num"><strong>Click enter</strong> after selecting a city</span>
+      <button id="metric" class="degres-btn pressed-btn" data-system="metric">°C</button>
+      <button id="imperial" class="degres-btn" data-system="imperial">°F</button>
+    </form>
+
+    <div id="loader" class="loader toggle-view loader--style8">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;"
+        xml:space="preserve">
+        <rect x="0" y="10" width="4" height="10" fill="#333" opacity="0.2">
+          <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="0.6s"
+            repeatCount="indefinite" />
+        </rect>
+        <rect x="8" y="10" width="4" height="10" fill="#333" opacity="0.2">
+          <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.15s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.15s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.15s" dur="0.6s"
+            repeatCount="indefinite" />
+        </rect>
+        <rect x="16" y="10" width="4" height="10" fill="#333" opacity="0.2">
+          <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.3s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.3s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.3s" dur="0.6s"
+            repeatCount="indefinite" />
+        </rect>
+      </svg>
+    </div>
+
+    <article id='weather' class="weather">
+      <div class="icon"><img id="icon" src="http://openweathermap.org/img/wn/10d@2x.png" alt="" srcset=""></div>
+      <p class="listed weather-main"><span id="weather-main">Clouds</span> <span id="weather-description"
+          class="weather-description secondary">(A few clouds)</span></p>
+      <p class="listed temperature" id="temperature"><span id="temperature-main" class="temperature-main">26C</span>
+        <span class="temperature-min-max secondary"><span class="default">range: </span><span
+            id="temperature-min-max">21C - 29C</span></span></p>
+      <p class="listed location" id="location"><span class="city-main" id="city">Panama</span><span class="num"> _
+        </span><span id="country" class="country-main">Panama</span></p>
+      <p class="atmospheric pressure num"><span class="listed default">Pressure</span><span><span class="dotted"
+            id="pressure">1017hPa</span></span></p>
+      <p class="atmospheric humidity num"><span class="listed default">Humidity</span><span><span class="dotted"
+            id="humidity">69%</span></span></p>
+      <p class="atmospheric wind num" id="wind"><span class="listed default">Wind</span><span><span class="dotted"
+            id="wind-velocity">3.1m/s</span></span><span class="wind-direction" id="wind-direction">30deg</span></p>
+    </article>
+    <p id='data'>
+    </p>
+  </main>
+  <script src="http://geoif.geobytes.com/geoif" language="javascript"></script>
+  <script src="http://geoif.geobytes.com/geoif?defaultlocation=USNYNYOR" language="javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/flick/jquery-ui.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="./main.js" type="text/javascript"></script>
+</body>
+
+</html>
