@@ -34,9 +34,19 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The Weather App project comes at the end of the Asynchronous Javascript and APIs section of the Javascript course. It tests the knowledge of the student about asynchronous communication with promises or async/await and when to use them.
+This project is a simple weather app that uses the fetch API, to get climate data from a selected city, with async/wait.
+
+- Enter city name
+- Click the Celcius or Fahrenheit
+- Press Enter
+- Get the climate data from the open weather map API for the selected city
+- Background image changes to reflect climate
 
 <div align="center">
+  <img src="public/img/scap-001.png" width="900">
+</div>
+<div align="center">
+  <img src="public/img/scap-002.png" width="900">
 </div>
 
 <!-- ABOUT THE PROJECT -->
@@ -44,7 +54,9 @@ The Weather App project comes at the end of the Asynchronous Javascript and APIs
 
 Download or clone the [repo here](https://github.com/uryelah/Microverse-605-weather-app.git), enter the directory in the terminal and run the commands:
 * `npm i`
+* `npm run bundle`
 * `npm run start`
+
 Your default browser should open the app at the localhost:8080
 
 ### Built With
@@ -70,16 +82,20 @@ This project was built using these technologies.
 * [Microverse](https://www.microverse.org/)
 * [The Odin Project](https://www.theodinproject.com/)
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Auto cities select populate from geobytes](https://geobytes.com/free-ajax-cities-jsonp-api/)
+* [Loading icon](https://codepen.io/aurer/pen/jEGbA)
+* [Error page gif](https://giphy.com/embed/96ayqIqaTqQlW)
+* [Open weather map API](https://home.openweathermap.org/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/uryelah/Microverse-603-restaurant-page.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/uryelah/Microverse-605-weather-app.svg?style=flat-square
 [contributors-url]: https://github.com/uryelah/Microverse-605-weather-app/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/uryelah/Microverse-603-restaurant-page.svg?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/uryelah/Microverse-605-weather-app.svg?style=flat-square
 [forks-url]: https://github.com/uryelah/Microverse-605-weather-app/network/members
-[stars-shield]: https://img.shields.io/github/stars/uryelah/Microverse-603-restaurant-page.svg?style=flat-square
+[stars-shield]: https://img.shields.io/github/stars/uryelah/Microverse-605-weather-app.svg?style=flat-square
 [stars-url]: https://github.com/uryelah/Microverse-605-weather-app/stargazers
-[issues-shield]: https://img.shields.io/github/issues/uryelah/Microverse-603-restaurant-page.svg?style=flat-square
+[issues-shield]: https://img.shields.io/github/issues/uryelah/Microverse-605-weather-app.svg?style=flat-square
 [issues-url]: https://github.com/uryelah/Microverse-605-weather-app
 [product-screenshot]: img/screenshot.PNG
 
